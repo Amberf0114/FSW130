@@ -15,9 +15,10 @@ function stopCount() {
     }
 }
 
-function resetCount() {
+function resetCount(time, mili, secs, mins, hours) {
     return {
         type: 'reset'
+        // time: {time, mili, secs, mins, hours}
     }
 }
 
@@ -68,9 +69,11 @@ function reducer(state = {hours: 0, minutes: 0, seconds: 0, miliseconds: 0, hour
             return state
 
         case 'reset' :
-            clearInterval()
-            return {
-                state : 0
+            return { 
+                miliseconds: 0,
+                seconds: 0,
+                minutes: 0, 
+                hours: 0
             }
         case 'lap' :
             return state
@@ -112,10 +115,10 @@ document.getElementById('stop').addEventListener('click', () => {
     store.dispatch(stopCount())
 })
 
-//Clear Event Listener
+//Reset Event Listener
 document.getElementById('reset').addEventListener('click', () => {
 
-    store.dispatch(stopCount(resetCount(store)))
+    store.dispatch(stopCount(resetCount()))
 })
 
 //Lap Event Listener
