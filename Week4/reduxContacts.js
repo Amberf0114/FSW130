@@ -28,6 +28,13 @@ function addContact(info) {
 
 }
 
+function removeContact(info) {
+    return{
+        type: "REMOVE_CONTACT",
+        payload: info
+    }
+}
+
 const initialState = {
     contactInfo : []
 }
@@ -38,7 +45,16 @@ function reducer(state = initialState , action) {
                 ...state,
                 contactInfo: [...state.contactInfo, action.payload]
             }
-          default :
+        case "REMOVE_CONTACT" :
+
+        const updatedArr = state.contactInfo.filter(contact => contact !==
+            action.payload)
+
+            return {
+                ...state,
+                contactInfo: updatedArr
+            }
+        default :
               return state
     }
 }
@@ -49,3 +65,5 @@ store.subscribe(() => {
 })
 
 store.dispatch(addContact(contact0))
+store.dispatch(addContact(contact1))
+store.dispatch(removeContact(contact0))
