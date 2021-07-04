@@ -1,5 +1,4 @@
 console.log(Redux)
-//functions to make buttons work && REDUX code && Button component code
 
 //REDUX
 function startCount(time, mili, secs, mins, hours) {
@@ -18,7 +17,6 @@ function stopCount() {
 function resetCount(time, mili, secs, mins, hours) {
     return {
         type: 'reset'
-        // time: {time, mili, secs, mins, hours}
     }
 }
 
@@ -31,27 +29,17 @@ function lapCount(time, mili, secs, mins, hours) {
 
 var stop;
 
-function reducer(state = {hours: 0, minutes: 0, seconds: 0, miliseconds: 0, hours: 0}, action){
+function reducer(state = {hours: 0, minutes: 0, seconds: 0, miliseconds: 0}, action){
     switch(action.type) {
         case 'start':
 
             console.log('Action :', action)
  
             return{
-                // miliseconds: action.time.mili+1,
-                // seconds: action.time.mili >= 999
-                //     ? state.seconds === 60 
-                //         && action.time.mili === 999 
-                //     ? 1 : state.seconds+1
-                //         : state.seconds, minutes 
-                //         : state.seconds === 59 
-                //     && action.time.mili === 1 
-                //     ? state.minutes+1 
-                //         : state.minutes,
-                miliseconds: state.miliseconds >= 9
+                miliseconds: state.miliseconds >= 99    
                     ? 0 : state.miliseconds+1,
                 seconds: state.seconds >=59 ? 0 :
-                    state.miliseconds >=9 ?
+                    state.miliseconds >=99 ?     //change this to 9 to speed up
                     state.seconds+1 : state.seconds,
                 minutes: state.minutes >= 59 ? 0 :
                     state.seconds >=59 ?
@@ -60,8 +48,6 @@ function reducer(state = {hours: 0, minutes: 0, seconds: 0, miliseconds: 0, hour
                     state.minutes >= 59 ? 
                     state.hours+1 : state.hours
 
-
-                // seconds :state.seconds === 60 && action.time.mili === 1 ? 0 : state.seconds,
                 }
 
         case 'stop':
@@ -104,7 +90,7 @@ document.getElementById('start').addEventListener('click', () => {
     
     console.log(store.getState())
 
-    stopWatch.textContent = `${store.getState().minutes} : ${store.getState().seconds} : ${store.getState().miliseconds}`
+    stopWatch.textContent = `${store.getState().hours} : ${store.getState().minutes} : ${store.getState().seconds} : ${store.getState().miliseconds}`
     }, 10)
 
 })
@@ -118,7 +104,13 @@ document.getElementById('stop').addEventListener('click', () => {
 //Reset Event Listener
 document.getElementById('reset').addEventListener('click', () => {
 
-    store.dispatch(stopCount(resetCount()))
+    store.dispatch(resetCount())
+
+    stopWatch.textContent =  ` 
+    ${store.getState().miliseconds} : 
+    ${store.getState().seconds} : 
+    ${store.getState().minutes} : 
+    ${store.getState().hours}`
 })
 
 //Lap Event Listener
