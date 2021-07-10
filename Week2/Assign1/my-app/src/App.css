@@ -1,0 +1,38 @@
+*{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    border: 2px solid black;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 10%;
+
+}
+
+h1{
+    color: rgb(18, 65, 18);
+    font-style: italic;
+}
+
+input {
+    width: 300px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+button{
+    background-color: rgb(18, 65, 18);
+    color: tan;
+}
+
+.list{
+    margin: 50px;
+    font-weight: bold;
+    font-size: xx-large;
+    color: rgb(126, 40, 9);
+    line-height: 200%;
+    text-shadow: 3px 6px rgb(155, 152, 152);
+
+}
