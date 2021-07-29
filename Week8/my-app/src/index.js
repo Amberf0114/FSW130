@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import App from './App';
-import {DataProvider} from './Context';
+import {Provider} from 'react-redux'
+import store from './SuperFoods'
 
 ReactDOM.render(
-  <DataProvider>
-    <App />
-  </DataProvider>,
+  <Provider store ={store}>
+      <App />
+  </Provider>,
   document.getElementById('root')
 );

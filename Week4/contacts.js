@@ -1,3 +1,0 @@
-const contacts {}
-
-module.exports
