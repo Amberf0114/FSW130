@@ -54,4 +54,4 @@ function App(props) {
 export default connect( state => {
   console.log(state)
   return({food : state})
-}, { addFood })(App);
+}, { addFood})(App);

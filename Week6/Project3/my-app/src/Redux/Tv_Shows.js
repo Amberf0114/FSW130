@@ -12,19 +12,19 @@ export function removeTvShow(show) {
     }
 }
 
-export function tvShowReducer(shows = [], action) {
+export function tvShowReducer(show = [], action) {
     switch(action.type) {
         case "ADD_TV_SHOW" :
-            return [...shows, action.payload]
+            return [...show, action.payload]
        
         case "REMOVE_TV_SHOW" :
-            const updatedArr = shows.filter(show => show.toLowerCase() !==
+            const updatedArr = show.filter(shows => shows.toLowerCase() !==
             action.payload.toLowerCase())
             return updatedArr
         
 
         default:
-            return shows
+            return show
     }
 }
 

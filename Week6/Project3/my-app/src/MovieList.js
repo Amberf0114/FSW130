@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom'
 import { useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 
@@ -36,7 +35,18 @@ function MoviesMap(props) {
                 })}
             </ul>
          </div> 
-            //import dispatch from Combine.js
+
+  );
+}
+
+const mapStateToProps = state => {
+    console.log(state)
+    return(state)
+  }
+  
+  export default connect( mapStateToProps)(MoviesMap);
+
+              //import dispatch from Combine.js
             //import actions
             //import connect
             //mapstatetoprops
@@ -51,12 +61,3 @@ function MoviesMap(props) {
 
                 //?Delete button
                     //handledelete
-  );
-}
-
-const mapStateToProps = state => {
-    console.log(state)
-    return(state)
-  }
-  
-  export default connect( mapStateToProps)(MoviesMap);

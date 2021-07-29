@@ -5,6 +5,7 @@ import Tv_Shows from './Tv_ShowsList';
 import Movies from './MovieList';
 import {Provider} from 'react-redux'
 import store from './Redux/Combine';
+import Home from './Home'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
                     
                 <div>
                   <Switch>
-
+                    <Route exact path='/'><Home /></Route>
                     <Route exact path='/tvshows'><Tv_Shows/></Route>
                     <Route exact path='/movies'><Movies/></Route>
 
